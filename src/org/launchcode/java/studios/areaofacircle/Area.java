@@ -7,8 +7,15 @@ public class Area {
         Scanner input;
 
         input = new Scanner(System.in);
-        System.out.println("Enter a radius: ");
-        radius = input.nextDouble();
+        do {
+            System.out.println("Enter a radius: ");
+            if (!input.hasNextDouble()){
+                System.out.println("\nInvalid input. Quitting.");
+                return;
+            }
+            radius = input.nextDouble();
+        } while (radius < 0);
+
         input.close();
 
         double area = Circle.getArea(radius);
